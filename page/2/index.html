@@ -102,100 +102,8 @@
     <div class="col-lg-10 col-md-10 col-md-offset-1">
       
         <div class="post-item-wrapper">
-  <a href="/2019/04/23/偶然在教务处发现csrf漏洞/" class="post-title">
-      偶然在教务处发现csrf漏洞
-  </a>
-  <div class="post-excerpt">
-    <!-- Post Date and Categories -->
-    <div class="date-and-category">
-      <div class="date">2019-04-23</div>
-      <div class="categories">
-        
-          
-
-<a href="/categories/随笔/">随笔</a>
-
-        
-      </div>
-    </div>
-    <!-- Post Excerpt -->
-    <div class="excerpt typo"><p>教务处修改密码界面如下：<br><img src="https://upload-images.jianshu.io/upload_images/16514845-683586af0de2a529.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="1.png"></p>
-<p>正常情况此处需要输出原密码，不会造成csrf漏洞。<br></p></div>
-    <!-- Post Tags -->
-    <div class="tags">
-      
-        <div class="untagged">Untagged</div>
-      
-    </div>
-  </div>
-</div>
-
-      
-        <div class="post-item-wrapper">
-  <a href="/2019/04/23/记某网站验证不严导致密码泄露及任意账户重置漏洞/" class="post-title">
-      记某网站验证不严导致密码泄露及任意账户重置漏洞
-  </a>
-  <div class="post-excerpt">
-    <!-- Post Date and Categories -->
-    <div class="date-and-category">
-      <div class="date">2019-04-23</div>
-      <div class="categories">
-        
-          
-
-<a href="/categories/随笔/">随笔</a>
-
-        
-      </div>
-    </div>
-    <!-- Post Excerpt -->
-    <div class="excerpt typo"><p>重置密码逻辑存在问题，做个记录。<br>在登录处，点击忘了密码，<br></p></div>
-    <!-- Post Tags -->
-    <div class="tags">
-      
-        <div class="untagged">Untagged</div>
-      
-    </div>
-  </div>
-</div>
-
-      
-        <div class="post-item-wrapper">
-  <a href="/2019/04/23/反序列化中__wakeup()函数漏洞/" class="post-title">
-      反序列化中__wakeup()函数漏洞
-  </a>
-  <div class="post-excerpt">
-    <!-- Post Date and Categories -->
-    <div class="date-and-category">
-      <div class="date">2019-04-23</div>
-      <div class="categories">
-        
-          
-
-<a href="/categories/随笔/">随笔</a>
-
-        
-      </div>
-    </div>
-    <!-- Post Excerpt -->
-    <div class="excerpt typo"><p><strong>wakeup()是用在反序列化操作中。unserialize()会检查存在一个</strong>wakeup()方法。如果存在，则先会调用__wakeup()方法。<br></p></div>
-    <!-- Post Tags -->
-    <div class="tags">
-      
-        
-
-<a class="tag" href="/tags/反序列化/">反序列化</a>
-
-
-      
-    </div>
-  </div>
-</div>
-
-      
-        <div class="post-item-wrapper">
-  <a href="/2019/04/23/Web-wanna-to-see-your-hat-/" class="post-title">
-      Web-wanna-to-see-your-hat
+  <a href="/2019/04/23/HITCON2017-ssrfme/" class="post-title">
+      HITCON2017-ssrfme
   </a>
   <div class="post-excerpt">
     <!-- Post Date and Categories -->
@@ -211,7 +119,7 @@
       </div>
     </div>
     <!-- Post Excerpt -->
-    <div class="excerpt typo"><p>点开页面显示一堆帽子，点击I want to check the color of my hat!。进入页面，可以输入name，随便输个名字，check然后返回一堆绿帽子。再试下注册，用注册的name去check，还是返回一堆绿帽子。这么多输入框，可能存在注入点。<br>接下来用burpsuite抓包，随便输个name，点击check。抓包如下<br></p></div>
+    <div class="excerpt typo"><p>点开得到源代码，大概意思应该是先创建一个目录sandbox/md5(orange+你的ip)，然后将传入的url使用GET命令去执行，再在解析filename参数，然后创建一个文件，并且将开始执行后的结果返回到这个文件。思路就是，先传访问一下?url=xx&amp;filename=xxx，然后访问/sandbox/你的md5结果/xxx，看返回的结果。<br></p></div>
     <!-- Post Tags -->
     <div class="tags">
       
@@ -223,8 +131,8 @@
 
       
         <div class="post-item-wrapper">
-  <a href="/2019/04/23/src业务逻辑思路/" class="post-title">
-      src业务逻辑思路
+  <a href="/2019/04/23/Git源码泄露/" class="post-title">
+      Git源码泄露
   </a>
   <div class="post-excerpt">
     <!-- Post Date and Categories -->
@@ -240,8 +148,8 @@
       </div>
     </div>
     <!-- Post Excerpt -->
-    <div class="excerpt typo"><p>对业务逻辑的测试整理下思路，方便查看。</p>
-<p>用户注册，是否可以重复注册，如admin或者admin （此处省略很多个空格）   a<br>密码修改，修改密码逻辑是否有问题<br>密码重置，重置密码逻辑是否有问题，对每一的数据包中的参数进行逐一分析，观察修改密码那一步的参数是否可以获得。<br>短信验证码，短信炸弹，对验证码发送的次数没有限制。短信验证码是否可暴破。<br></p></div>
+    <div class="excerpt typo"><p>Git信息泄露的危害很大，可直接从源码获取敏感配置信息（如：邮箱，数据库），也可以进一步审计代码，挖掘文件上传、SQL注射等安全漏洞。缺陷编号：wooyun-2015-0117332。</p>
+<p><strong>获取利用代码：</strong><a href="https://github.com/lijiejie/GitHack" target="_blank" rel="noopener">https://github.com/lijiejie/GitHack</a><br></p></div>
     <!-- Post Tags -->
     <div class="tags">
       
@@ -253,8 +161,8 @@
 
       
         <div class="post-item-wrapper">
-  <a href="/2019/04/23/SQLite的注入/" class="post-title">
-      SQLite的注入
+  <a href="/2019/04/23/ctf实验吧之加了料的报错注入/" class="post-title">
+      ctf实验吧之加了料的报错注入
   </a>
   <div class="post-excerpt">
     <!-- Post Date and Categories -->
@@ -264,13 +172,13 @@
         
           
 
-<a href="/categories/CTF/">CTF</a>
+<a href="/categories/实验吧/">实验吧</a>
 
         
       </div>
     </div>
     <!-- Post Excerpt -->
-    <div class="excerpt typo"><p>在攻防世界上遇见了一道数据库是SQLite的ctf，因此做个记录。向mysql的information_schema一样。它也有一个sqlite_master表。<br>union select联合查询：’ union select name,sql from sqlite_master，可以得到创建表的结构。如<br></p></div>
+    <div class="excerpt typo"><p>打开链接，显示让我登陆，并且提示tips:post username and password…，并且F12看源码提示sql语句sql=”select * from users where username=’username’ and password=’password’”;。<br>使用burpsuite抓包，将GET改为POST，添加上Content-Type: application/x-www-form-urlencoded<br>，在最后换行补上username和password参数，发给Repeter模块。<br></p></div>
     <!-- Post Tags -->
     <div class="tags">
       
@@ -282,8 +190,8 @@
 
       
         <div class="post-item-wrapper">
-  <a href="/2019/04/23/python爬取付费QQ音乐歌曲/" class="post-title">
-      python爬取付费QQ音乐歌曲
+  <a href="/2019/04/23/ctf实验吧之who-are-you？/" class="post-title">
+      ctf实验吧之who-are-you？
   </a>
   <div class="post-excerpt">
     <!-- Post Date and Categories -->
@@ -293,13 +201,13 @@
         
           
 
-<a href="/categories/python/">python</a>
+<a href="/categories/实验吧/">实验吧</a>
 
         
       </div>
     </div>
     <!-- Post Excerpt -->
-    <div class="excerpt typo"><p>整理东西的时候发现，以前写的一个，在qq听音乐时，发现有首好听的，想下载下来但是要钱。就想，既然能听，那就可以找到MP3文件。(如果听都要收费那就没办法了)<br></p></div>
+    <div class="excerpt typo"><p>点开链接，显示your ip is :xxx。抓包添加参数X-Forwarded-For:192.168.1.1，果然，返回的ip是添加上去的。想起提示我要把攻击我的人都记录db中去!。整理思路，应该是得到X-Forwarded-For参数后，将其存入数据库中，然后在从数据库中取出来。添加单引号等字符，原样返回。试下基于时间的盲注，构造1’ and if(length(database())=5,sleep(5),1) and ‘1’=’1，发现逗号没了。换个select case when，构造1’ and (select case when length(database())=5 then sleep(5) else 1 end) and ‘1’=’1。当数据库名长度为4时成功延迟响应，确定存在注入。接下来写脚本跑吧。<br></p></div>
     <!-- Post Tags -->
     <div class="tags">
       
@@ -311,8 +219,8 @@
 
       
         <div class="post-item-wrapper">
-  <a href="/2019/04/23/PHP之弱类型理解/" class="post-title">
-      PHP之弱类型理解
+  <a href="/2019/04/23/weBug-4-0-第30关-ssrf/" class="post-title">
+      weBug-4-0-第30关-ssrf
   </a>
   <div class="post-excerpt">
     <!-- Post Date and Categories -->
@@ -322,21 +230,17 @@
         
           
 
-<a href="/categories/随笔/">随笔</a>
+<a href="/categories/weBug/">weBug</a>
 
         
       </div>
     </div>
     <!-- Post Excerpt -->
-    <div class="excerpt typo"><p>在PHP中有两种比较的符号 == 与 ===，一种是松散的，一种是严格的。<br>==   在进行比较的时候，会先将字符串类型转化成相同，然后再比较。<br>=== 在进行比较的时候，会先判断两种字符串的类型是否相等，然后再比较。<br></p></div>
+    <div class="excerpt typo"><p>构造形成由服务端发起请求的一个安全漏洞。一般情况下，SSRF攻击的目标是从外网无法访问的内部系统。<br>SSRF 形成的原因大都是由于服务端提供了从其他服务器应用获取数据的功能且没有对目标地址做过滤与限制。比如从指定URL地址获取网页文本内容，加载指定地址的图片，下载等等。<br>相当于，我们能访问一个web服务器，然后web服务器向内网服务器请求资源。我们就可以恶意构造这个请求。造成本地文件泄露，对内网进行扫描，得到有漏洞的信息。<br></p></div>
     <!-- Post Tags -->
     <div class="tags">
       
-        
-
-<a class="tag" href="/tags/弱类型/">弱类型</a>
-
-
+        <div class="untagged">Untagged</div>
       
     </div>
   </div>
@@ -344,8 +248,8 @@
 
       
         <div class="post-item-wrapper">
-  <a href="/2019/04/23/PHP伪协议/" class="post-title">
-      PHP伪协议
+  <a href="/2019/04/23/weBug-4-0-第27关-文件包含漏洞/" class="post-title">
+      weBug-4-0-第27关-文件包含漏洞
   </a>
   <div class="post-excerpt">
     <!-- Post Date and Categories -->
@@ -355,21 +259,18 @@
         
           
 
-<a href="/categories/随笔/">随笔</a>
+<a href="/categories/weBug/">weBug</a>
 
         
       </div>
     </div>
     <!-- Post Excerpt -->
-    <div class="excerpt typo"><p>最常用的php://filter，用于读取文件/源码：<a href="http://127.0.0.1/xxx.php?file=php://filter/read=convert.base64-encode/resource=index.php(使用的过滤器是convert.base64-encode。它的作用就是读取index.php的内容进行base64编码后输出)，然后base64解码得到源代码。" target="_blank" rel="noopener">http://127.0.0.1/xxx.php?file=php://filter/read=convert.base64-encode/resource=index.php(使用的过滤器是convert.base64-encode。它的作用就是读取index.php的内容进行base64编码后输出)，然后base64解码得到源代码。</a><br>贴一个大佬讲的php://filter妙用。<br><a href="https://www.leavesongs.com/PENETRATION/php-filter-magic.html" target="_blank" rel="noopener">https://www.leavesongs.com/PENETRATION/php-filter-magic.html</a><br></p></div>
+    <div class="excerpt typo"><p>可以看到url如下，明显的文件包含，直接读取文件。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://192.168.43.147/control/more/file_include.php?filename=../../template/dom_xss.html</span><br></pre></td></tr></table></figure></p>
+<p>直接payload，写这么多../是为了到达c盘根目录。<br></p></div>
     <!-- Post Tags -->
     <div class="tags">
       
-        
-
-<a class="tag" href="/tags/php伪协议/">php伪协议</a>
-
-
+        <div class="untagged">Untagged</div>
       
     </div>
   </div>
@@ -377,8 +278,8 @@
 
       
         <div class="post-item-wrapper">
-  <a href="/2019/04/23/http头注入/" class="post-title">
-      http头注入
+  <a href="/2019/04/23/weBug-4-0-第23关-支付漏洞/" class="post-title">
+      weBug-4-0-第23关-支付漏洞
   </a>
   <div class="post-excerpt">
     <!-- Post Date and Categories -->
@@ -388,13 +289,100 @@
         
           
 
-<a href="/categories/随笔/">随笔</a>
+<a href="/categories/weBug/">weBug</a>
 
         
       </div>
     </div>
     <!-- Post Excerpt -->
-    <div class="excerpt typo"><p>HTTP头部详解<br>User-Agent：使得服务器能够识别客户使用的操作系统，游览器版本等。<br>Cookie：网站为了辨别用户身份、进行 session 跟踪而储存在用户本地终端上的数据。<br>X-Forwarded-For：它被认为是客户端通过HTTP代理或者负载均衡器连接到web服务端获取源ip地址的一个标准。<br>Rerferer：浏览器向 WEB 服务器表明自己是从哪个页面链接过来的。<br>Host：访问的WEB服务器的域名/IP 地址和端口号。<br></p></div>
+    <div class="excerpt typo"><p>这算是业务逻辑漏洞吧，直接抓包，点击购买，可以看到价格用get传送，将其修改为10，返回你支付了10元。<br></p></div>
+    <!-- Post Tags -->
+    <div class="tags">
+      
+        <div class="untagged">Untagged</div>
+      
+    </div>
+  </div>
+</div>
+
+      
+        <div class="post-item-wrapper">
+  <a href="/2019/04/23/weBug-4-0-第17关-文件上传前端拦截/" class="post-title">
+      weBug-4-0-第17关-文件上传前端拦截
+  </a>
+  <div class="post-excerpt">
+    <!-- Post Date and Categories -->
+    <div class="date-and-category">
+      <div class="date">2019-04-23</div>
+      <div class="categories">
+        
+          
+
+<a href="/categories/weBug/">weBug</a>
+
+        
+      </div>
+    </div>
+    <!-- Post Excerpt -->
+    <div class="excerpt typo"><p>17前端拦截：首先创建一个php文件，内容如下&lt;?php phpinfo();?&gt;。然后选择文件上传。刚选中，就弹出文件格式不对，应该就是javascript判断的。直接用浏览器禁用js（或者先改成txt然后抓包修改回来）。上传成功，返回路径，访问<a href="http://ip/template/upload/hack.php。显示出php配置信息。" target="_blank" rel="noopener">http://ip/template/upload/hack.php。显示出php配置信息。</a><br></p></div>
+    <!-- Post Tags -->
+    <div class="tags">
+      
+        <div class="untagged">Untagged</div>
+      
+    </div>
+  </div>
+</div>
+
+      
+        <div class="post-item-wrapper">
+  <a href="/2019/04/23/weBug-4-0-第17关-文件上传畸形文件/" class="post-title">
+      weBug-4-0-第17关-文件上传畸形文件.md
+  </a>
+  <div class="post-excerpt">
+    <!-- Post Date and Categories -->
+    <div class="date-and-category">
+      <div class="date">2019-04-23</div>
+      <div class="categories">
+        
+          
+
+<a href="/categories/weBug/">weBug</a>
+
+        
+      </div>
+    </div>
+    <!-- Post Excerpt -->
+    <div class="excerpt typo"><p>上传文件名为hack.pphphp。上传成功，访问路径，显示出php配置信息。<br>它会寻找php然后将其替换成空。，所以上传hack.pphphp即可。<br></p></div>
+    <!-- Post Tags -->
+    <div class="tags">
+      
+        <div class="untagged">Untagged</div>
+      
+    </div>
+  </div>
+</div>
+
+      
+        <div class="post-item-wrapper">
+  <a href="/2019/04/23/weBug-4-0-第13关-过滤xss/" class="post-title">
+      weBug-4-0-第13关-过滤xss
+  </a>
+  <div class="post-excerpt">
+    <!-- Post Date and Categories -->
+    <div class="date-and-category">
+      <div class="date">2019-04-23</div>
+      <div class="categories">
+        
+          
+
+<a href="/categories/weBug/">weBug</a>
+
+        
+      </div>
+    </div>
+    <!-- Post Excerpt -->
+    <div class="excerpt typo"><p>输入点在<a href="http://192.168.1.103/control/xss/filter_xss.php?id=1。" target="_blank" rel="noopener">http://192.168.1.103/control/xss/filter_xss.php?id=1。</a><br>先尝试下<code>&lt;script&gt;alert(/xss/)&lt;/script&gt;</code>，检测到恶意函数。将script改成大写，也检测到了。那就换个标签如 “&lt;img src=1 onerror=alert(/xss/)&gt;”，成功弹窗。将/xss/替换成document.cookie，得到flag。<br></p></div>
     <!-- Post Tags -->
     <div class="tags">
       
@@ -415,9 +403,16 @@
     <div class="col-lg-10 col-md-10 col-md-offset-1">
       <ul class="pagination">
           
+              <li class="previous">
+                <a href="/">
+                  <span class="symbol-left">&lt;</span>
+                  <span>PREV</span>
+                </a>
+              </li>
+          
           
             <li class="next">
-              <a href="/page/2/">
+              <a href="/page/3/">
                 <span>NEXT</span>
                 <span class="symbol-right">&gt;</span>
               </a>

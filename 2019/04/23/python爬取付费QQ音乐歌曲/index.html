@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+  <!-- Html Head Tag-->
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content>
+  <meta name="author" content="gelinlang">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="python爬取付费QQ音乐歌曲">
+  <meta property="og:description" content="路漫漫求修远兮，我将上下而求索">
+  <meta property="og:site_name" content="gelinlang&#39;s Blog">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="http://gelinlang.cn">
+  
+    <link rel="alternate" href="/atom.xml" title="gelinlang&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <!-- Site Title -->
+  <title>gelinlang's Blog</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  
+  <link rel="stylesheet" href="/css/style.light.css">
+
+  <!-- Google Analytics -->
+  
+
+</head>
+
+  <body>
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(/img/default-banner-dark.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">python爬取付费QQ音乐歌曲</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  
+                  Archives
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/tags/">
+                  
+                  tags
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/">
+                  
+                  categories
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/gelinlang@163.com">
+                  
+                  Email
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By gelinlang</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2019-04-23</span>
+            <span class="time">22:04:14</span>
+          </span>
+          
+          <!--  Categories  -->
+            <span class="categories info">Under 
+
+<a href="/categories/python/">python</a>
+</span>
+          
+        </div>
+        <!-- Tags -->
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <p>整理东西的时候发现，以前写的一个，在qq听音乐时，发现有首好听的，想下载下来但是要钱。就想，既然能听，那就可以找到MP3文件。(如果听都要收费那就没办法了)<br><a id="more"></a><br><img src="https://upload-images.jianshu.io/upload_images/16514845-160814d75096f817.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br><img src="https://upload-images.jianshu.io/upload_images/16514845-ad80e6f1e477b21d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>思路如下：<br>1丶首先到排行榜网址上寻找信息：排行榜由js动态加载，并且一次只显示30首。访问js请求的网页，得到js返回值，将得到的js数据处理，得到歌曲名和歌手信息，存入txt 文件，方便下面进行下载。<br>2丶通过存有音乐信息的txt，拼接音乐搜索网址，访问它，获取到每首音乐的一个id。<br>3丶每首歌在播放时都会有播放源链接(即我们需要的下载链接)，这个链接需要传入一些参数，最重要的是歌曲存放文件名和vkey。然后播放时，它会通过js请求，返回需要的文件名和vkey，这个js请求url就可以用之前获取到的id构造。<br><img src="https://upload-images.jianshu.io/upload_images/16514845-c1793651eeea23ed.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br><img src="https://upload-images.jianshu.io/upload_images/16514845-b8fbc97a24831a62.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br><img src="https://upload-images.jianshu.io/upload_images/16514845-3afba54fcf2ea5d9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br><img src="https://upload-images.jianshu.io/upload_images/16514845-4250f3c5b94ccaea.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>源代码如下，为指定歌曲下载，想批量下载请自行修改，原理一样。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env python3</span><br><span class="line"># -*- coding: utf-8 -*-</span><br><span class="line">#此程序仅供学习交流使用。</span><br><span class="line"></span><br><span class="line">import urllib.request</span><br><span class="line">import json</span><br><span class="line">import re</span><br><span class="line">import urllib.parse</span><br><span class="line">from selenium import webdriver</span><br><span class="line">from selenium.webdriver.common.by import By</span><br><span class="line">from selenium.webdriver.support.ui import WebDriverWait</span><br><span class="line">from selenium.webdriver.support import expected_conditions as EC</span><br><span class="line"></span><br><span class="line">name = input(&quot;输入你想听的歌名or歌名+歌手:&quot;)</span><br><span class="line">name = urllib.parse.quote(name)</span><br><span class="line">url = &quot;https://y.qq.com/portal/search.html#page=1&amp;searchid=1&amp;remoteplace=txt.yqq.top&amp;t=song&amp;w=&quot;+name</span><br><span class="line"></span><br><span class="line">headers = &#123;</span><br><span class="line">    &quot;User-Agent&quot; : &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">def network(url):</span><br><span class="line">    request_url = urllib.request.Request(url,headers=headers)</span><br><span class="line">    response = urllib.request.urlopen(request_url).read().decode(&apos;utf-8&apos;)</span><br><span class="line">    return response</span><br><span class="line"></span><br><span class="line">def download(songmid,music_name):</span><br><span class="line">#json数据</span><br><span class="line">    json_url = &quot;https://c.y.qq.com/base/fcgi-bin/fcg_music_express_mobile3.fcg?g_tk=5381&amp;jsonpCallback=MusicJsonCallback8796342823761736&amp;loginUin=0&amp;hostUin=0&amp;format=json&amp;inCharset=utf8&amp;outCharset=utf-8&amp;notice=0&amp;platform=yqq&amp;needNewCode=0&amp;cid=205361747&amp;callback=MusicJsonCallback8796342823761736&amp;uin=0&amp;&quot; \</span><br><span class="line">           &quot;songmid=&quot;+songmid+&quot;&amp;filename=C400&quot;+songmid+&quot;.m4a&amp;guid=4626869183&quot;</span><br><span class="line">    html = network(json_url)</span><br><span class="line">#找到json中music的信息</span><br><span class="line">    music_json = json.loads(re.findall(r&apos;^\w+\((.*)\)$&apos;,html)[0])</span><br><span class="line">    filename = music_json[&apos;data&apos;][&apos;items&apos;][0][&apos;filename&apos;]</span><br><span class="line">    vkey = music_json[&apos;data&apos;][&apos;items&apos;][0][&apos;vkey&apos;]</span><br><span class="line">#歌曲的下载链接</span><br><span class="line">    download_url = &quot;http://dl.stream.qqmusic.qq.com/&quot;+filename+&quot;?vkey=&quot;+vkey+&quot;&amp;guid=4626869183&amp;uin=0&amp;fromtag=66&quot;</span><br><span class="line">    ret_url = urllib.request.Request(download_url,headers=headers)</span><br><span class="line">    music_url = urllib.request.urlopen(ret_url).read()</span><br><span class="line">    with open(&quot;./&quot;+music_name+&quot;.m4a&quot;, &quot;wb&quot;) as fb:</span><br><span class="line">        fb.write(music_url)</span><br><span class="line"></span><br><span class="line">def get():</span><br><span class="line">#加载Chromedriver,百度chromedriver.exe，下载与自己chrome版本一致的。</span><br><span class="line">    option = webdriver.ChromeOptions()</span><br><span class="line">    option.add_argument(&apos;headless&apos;)</span><br><span class="line">    driver = webdriver.Chrome(&apos;D:\Python3\chromedriver.exe&apos;,chrome_options=option)</span><br><span class="line">#请自行修改加载的路径</span><br><span class="line">    driver.get(url)</span><br><span class="line">    WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CLASS_NAME, &quot;js_song&quot;)))</span><br><span class="line">    music = driver.find_element_by_class_name(&apos;js_song&apos;)</span><br><span class="line">    href = music.get_attribute(&apos;href&apos;)</span><br><span class="line">    music_name = music.get_attribute(&apos;title&apos;)</span><br><span class="line">#匹配到歌曲的id</span><br><span class="line">    songmid = re.findall(r&apos;https://y.qq.com/n/yqq/song/(\S+).html&apos;,href)[0]</span><br><span class="line">    download(songmid,music_name)</span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    get()</span><br></pre></td></tr></table></figure></p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+          Inspired By <a target="_blank" href="https://github.com/klugjo/hexo-theme-clean-blog">Clean Blog.</a>
+        </p><p class="copyright text-muted">
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- After Footer Scripts -->
+<script src="/js/highlight.pack.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+  </body>
+</html>
+

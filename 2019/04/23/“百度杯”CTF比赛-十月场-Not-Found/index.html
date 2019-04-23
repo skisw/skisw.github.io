@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+  <!-- Html Head Tag-->
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content>
+  <meta name="author" content="gelinlang">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="“百度杯”CTF比赛-十月场-Not-Found">
+  <meta property="og:description" content="路漫漫求修远兮，我将上下而求索">
+  <meta property="og:site_name" content="gelinlang&#39;s Blog">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="http://gelinlang.cn">
+  
+    <link rel="alternate" href="/atom.xml" title="gelinlang&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <!-- Site Title -->
+  <title>gelinlang's Blog</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  
+  <link rel="stylesheet" href="/css/style.light.css">
+
+  <!-- Google Analytics -->
+  
+
+</head>
+
+  <body>
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(/img/default-banner-dark.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">“百度杯”CTF比赛-十月场-Not-Found</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  
+                  Archives
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/tags/">
+                  
+                  tags
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/">
+                  
+                  categories
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/gelinlang@163.com">
+                  
+                  Email
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By gelinlang</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2019-04-23</span>
+            <span class="time">22:04:13</span>
+          </span>
+          
+          <!--  Categories  -->
+            <span class="categories info">Under 
+
+<a href="/categories/CTF/">CTF</a>
+</span>
+          
+        </div>
+        <!-- Tags -->
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <p>总结一下，http请求方法，.htaccess文件，获取客服端ip的方法。</p>
+<p>打开页面，显示404，审查一下元素，没发现。<br>根据页面The requested URL /404.php was not found on this server。去访问一下404.php，显示haha，也审查一下元素，没什么特别的。<br>然后抓包，在index.php返回的消息头发现X-Method: haha。提示方法，尝试一http请求方法，一共8种。<br> <a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">GET	请求指定的页面信息，并返回实体主体。</span><br><span class="line">HEAD	类似于get请求，只不过返回的响应中没有具体的内容，用于获取报头</span><br><span class="line">POST	向指定资源提交数据进行处理请求（例如提交表单或者上传文件）。</span><br><span class="line">OPTIONS 	允许客户端查看服务器的性能。</span><br><span class="line">PUT	从客户端向服务器传送的数据取代指定的文档的内容。</span><br><span class="line">DELETE	请求服务器删除指定的页面。</span><br><span class="line">CONNECT	HTTP/1.1协议中预留给能够将连接改为管道方式的代理服务器。</span><br><span class="line">TRACE	回显服务器收到的请求，主要用于测试或诊断。</span><br></pre></td></tr></table></figure></p>
+<p>当请求方法为OPTIONS，发现消息头有个Location: ?f=1.php，访问。<br><img src="https://upload-images.jianshu.io/upload_images/16514845-f534667afc36f64c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"></p>
+<p>好像没什么用，然后访问index.php，404.php都是not allowed。拉闸拉闸。<br>看一手wp，有个.htaccess文件(.htaccess文件提供了一种目录级别的修改配置的方式。一个文件，包含一条或多条配置指令，放置于目录下，这些配置指令对当前目录和其所有子目录生效)，就相当于一个配置文件。<br><img src="https://upload-images.jianshu.io/upload_images/16514845-04b9e042952b0d2b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>然后在浏览器上访问，说IP 错误，XFF???，抓包添加X-Forwarded-For: 127.0.0.1。还是IP 错误，XFF???搜索一下还有类似构造ip的方法，找到client-ip。添加client-ip: 127.0.0.1，得到flag。</p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+          Inspired By <a target="_blank" href="https://github.com/klugjo/hexo-theme-clean-blog">Clean Blog.</a>
+        </p><p class="copyright text-muted">
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- After Footer Scripts -->
+<script src="/js/highlight.pack.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+  </body>
+</html>
+

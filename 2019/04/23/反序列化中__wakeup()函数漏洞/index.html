@@ -8,10 +8,10 @@
   <meta name="description" content>
   <meta name="author" content="gelinlang">
   <!-- Open Graph Data -->
-  <meta property="og:title" content="gelinlang&#39;s Blog">
+  <meta property="og:title" content="反序列化中__wakeup()函数漏洞">
   <meta property="og:description" content="路漫漫求修远兮，我将上下而求索">
   <meta property="og:site_name" content="gelinlang&#39;s Blog">
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="article">
   <meta property="og:image" content="http://gelinlang.cn">
   
     <link rel="alternate" href="/atom.xml" title="gelinlang&#39;s Blog" type="application/atom+xml">
@@ -35,8 +35,7 @@
 </head>
 
   <body>
-    <!-- Archive Header -->
-<!-- Page Header -->
+    <!-- Page Header -->
 
 
 <header class="site-header header-background" style="background-image: url(/img/default-banner-dark.jpg)">
@@ -44,7 +43,7 @@
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <div class="page-title with-background-image">
-          <p class="title">Blog Archives</p>
+          <p class="title">反序列化中__wakeup()函数漏洞</p>
           <p class="subtitle"></p>
         </div>
         <div class="site-menu with-background-image">
@@ -97,81 +96,49 @@
   </div>
 </header>
 
-<!-- Archive List -->
-<div class="container">
-  <div class="row">
-    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-      
-        <div class="archive-item">
-  <a href="/2019/04/23/偶然在教务处发现csrf漏洞/" class="post-title">
-    偶然在教务处发现csrf漏洞
-  </a>
-  <div class="date text-muted">Posted on 2019-04-23 21:51:55</div>
-</div>
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By gelinlang</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2019-04-23</span>
+            <span class="time">22:04:14</span>
+          </span>
+          
+          <!--  Categories  -->
+            <span class="categories info">Under 
 
-      
-        <div class="archive-item">
-  <a href="/2019/04/23/记某网站验证不严导致密码泄露及任意账户重置漏洞/" class="post-title">
-    记某网站验证不严导致密码泄露及任意账户重置漏洞
-  </a>
-  <div class="date text-muted">Posted on 2019-04-23 21:51:55</div>
-</div>
+<a href="/categories/随笔/">随笔</a>
+</span>
+          
+        </div>
+        <!-- Tags -->
+        
+          <div class="post-tags text-muted">
+            Tags: 
 
-      
-        <div class="archive-item">
-  <a href="/2019/04/23/反序列化中__wakeup()函数漏洞/" class="post-title">
-    反序列化中__wakeup()函数漏洞
-  </a>
-  <div class="date text-muted">Posted on 2019-04-23 21:51:55</div>
-</div>
+<a class="tag" href="/tags/反序列化/">#反序列化</a>
 
-      
-        <div class="archive-item">
-  <a href="/2019/04/23/Web-wanna-to-see-your-hat-/" class="post-title">
-    Web-wanna-to-see-your-hat
-  </a>
-  <div class="date text-muted">Posted on 2019-04-23 21:51:55</div>
-</div>
 
-      
-        <div class="archive-item">
-  <a href="/2019/04/23/src业务逻辑思路/" class="post-title">
-    src业务逻辑思路
-  </a>
-  <div class="date text-muted">Posted on 2019-04-23 21:51:55</div>
-</div>
+          </div>
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <p><strong>wakeup()是用在反序列化操作中。unserialize()会检查存在一个</strong>wakeup()方法。如果存在，则先会调用__wakeup()方法。<br><a id="more"></a><br>在XCTF攻防世界的一道题unserialize3，源码如下。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">class xctf&#123;</span><br><span class="line">public $flag = &apos;111&apos;;</span><br><span class="line">public function __wakeup()&#123;</span><br><span class="line">exit(&apos;bad requests&apos;);</span><br><span class="line">&#125;//这里差个反括号，但是源码确实是这样的。</span><br><span class="line">?code=</span><br></pre></td></tr></table></figure></p>
+<p>将上面的要求序列化后为O:4:”xctf”:1:{s:4:”flag”;s:3:”111”;}，xctf后有一个数字1，这个1是代表这个类有一个属性。<strong>wakeup()漏洞就是与整个属性个数值有关。当序列化字符串表示对象属性个数的值大于真实个数的属性时就会跳过</strong>wakeup的执行。<br>如，我们提交O:4:”xctf”:2:{s:4:”flag”;s:3:”111”;}，将其改为2，得到flag。</p>
+<p>给一个在线序列化的网址。<br><a href="https://www.w3cschool.cn/tryrun/showphp/demo_func_string_serialize" target="_blank" rel="noopener">https://www.w3cschool.cn/tryrun/showphp/demo_func_string_serialize</a></p>
 
-      
-        <div class="archive-item">
-  <a href="/2019/04/23/SQLite的注入/" class="post-title">
-    SQLite的注入
-  </a>
-  <div class="date text-muted">Posted on 2019-04-23 21:51:55</div>
-</div>
-
-      
-
+        </div>
+      </div>
     </div>
   </div>
-</div>
-<!-- Pagination -->
-<div class="container">
-  <div class="row">
-    <div class="col-lg-10 col-md-10 col-md-offset-1">
-      <ul class="pagination">
-          
-          
-            <li class="next">
-              <a href="/archives/2019/04/page/2/">
-                <span>NEXT</span>
-                <span class="symbol-right">&gt;</span>
-              </a>
-            </li>
-          
-      </ul>
-    </div>
-  </div>
-</div>
+</article>
 
 
 

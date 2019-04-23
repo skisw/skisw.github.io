@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+  <!-- Html Head Tag-->
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content>
+  <meta name="author" content="gelinlang">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="“百度杯”CTF比赛-十月场-Getflag">
+  <meta property="og:description" content="路漫漫求修远兮，我将上下而求索">
+  <meta property="og:site_name" content="gelinlang&#39;s Blog">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="http://gelinlang.cn">
+  
+    <link rel="alternate" href="/atom.xml" title="gelinlang&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <!-- Site Title -->
+  <title>gelinlang's Blog</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  
+  <link rel="stylesheet" href="/css/style.light.css">
+
+  <!-- Google Analytics -->
+  
+
+</head>
+
+  <body>
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(/img/default-banner-dark.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">“百度杯”CTF比赛-十月场-Getflag</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  
+                  Archives
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/tags/">
+                  
+                  tags
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/">
+                  
+                  categories
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/gelinlang@163.com">
+                  
+                  Email
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By gelinlang</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2019-04-23</span>
+            <span class="time">22:04:13</span>
+          </span>
+          
+          <!--  Categories  -->
+            <span class="categories info">Under 
+
+<a href="/categories/CTF/">CTF</a>
+</span>
+          
+        </div>
+        <!-- Tags -->
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <p>先总结一下吧，第一个就是多尝试，不要怕，然后就是细节。</p>
+<p>打开页面，显示 This is a mini file manager, you can login and download the files and even get the flag。<br>先进入显示登录框，并且验证码经过md5加密，应该需要碰撞。<br>扫一下目录，没什么发现。开始测试sql注入，验验证码先随便输个，发现居然没有反馈。可能是验证码不对？，但是每次md5都要刷新，这是想让我测试一下又要爆破一下吗？<br>写个脚本爆破一下。<br> <a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import hashlib</span><br><span class="line">captcha = &quot;1889de&quot;</span><br><span class="line">for i in range(1, 1000000000):</span><br><span class="line">    hash = hashlib.md5(str(i).encode()).hexdigest()</span><br><span class="line">    if hash[0:6] == captcha:</span><br><span class="line">        print(i)</span><br></pre></td></tr></table></figure></p>
+<p>得到验证码，先来个admin’ or 1=1#再说。然后直接登录成功了。。。<br>有3个文件，有一个a.php说，flag在网站根目录下。直接访问flag.php，没有发现，在尝试一下php://filter读取flag文件，失败。<br>然后想到一开始的download the files and even get the flag，可能可以直接下载flag文件。抓包，然后将?f=a.php改成?f=../flag.php，发送。返回flag{wow!!!but not true}。<br>在尝试下绝对路径在linux中绝对路径是/var/www/html。<br>?f=/var/www/html/Challenges/flag.php。得到flag.php源码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$f = $_POST[&apos;flag&apos;];</span><br><span class="line">$f = str_replace(array(&apos;`&apos;, &apos;$&apos;, &apos;*&apos;, &apos;#&apos;, &apos;:&apos;, &apos;\\&apos;, &apos;&quot;&apos;, &quot;&apos;&quot;, &apos;(&apos;, &apos;)&apos;, &apos;.&apos;, &apos;&gt;&apos;), &apos;&apos;, $f);</span><br><span class="line">if((strlen($f) &gt; 13) || (false !== stripos($f, &apos;return&apos;)))&#123;</span><br><span class="line">        die(&apos;wowwwwwwwwwwwwwwwwwwwwwwwww&apos;);</span><br><span class="line">&#125;</span><br><span class="line">try&#123;</span><br><span class="line">         eval(&quot;\$spaceone = $f&quot;);</span><br><span class="line">&#125;</span><br><span class="line">catch (Exception $e)&#123;</span><br><span class="line">        return false;</span><br><span class="line">&#125;</span><br><span class="line">if ($spaceone === &apos;flag&apos;)&#123;</span><br><span class="line">    echo file_get_contents(&quot;helloctf.php&quot;);</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure></p>
+<p>大概意思就是，flag页面，接收一个flag参数，先进行str_replace，将一些字符替换为空，长度不能大于13。然后测试传进来的flag参数的值是否为flag。<br>在flag页面post参数flag=flag，发现没有返回，拉闸拉闸，去看了下wp。</p>
+<p>说eval函数做了异常处理，直接提交flag=flag会产生异常，而提交flag=’flag’或flag=”flag”，引号会被过滤，用PHP字符串的表示方法，叫做Heredoc。</p>
+<p>做了异常处理，但是提交flag=flag会产生异常，是什么鬼。不过既然是eval这有问题，去查了下eval函数。如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">eval() 函数把字符串按照 PHP 代码来计算。</span><br><span class="line">该字符串必须是合法的 PHP 代码，且必须以分号结尾。</span><br><span class="line">如果没有在代码字符串中调用 return 语句，则返回 NULL。如果代码中存在解析错误，则 eval() 函数返回 false。</span><br></pre></td></tr></table></figure></p>
+<p>重点应该在这，必须以分号结尾。提交flag=flag;。可以看到在审查元素那，注释了flag。<br><img src="https://upload-images.jianshu.io/upload_images/16514845-4ede9376c9f17ea5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"></p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+          Inspired By <a target="_blank" href="https://github.com/klugjo/hexo-theme-clean-blog">Clean Blog.</a>
+        </p><p class="copyright text-muted">
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- After Footer Scripts -->
+<script src="/js/highlight.pack.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+  </body>
+</html>
+

