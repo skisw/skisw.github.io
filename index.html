@@ -1,463 +1,2328 @@
 <!DOCTYPE html>
-<html>
-  <!-- Html Head Tag-->
-  <head><meta name="generator" content="Hexo 3.8.0">
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content>
-  <meta name="author" content="gelinlang">
-  <!-- Open Graph Data -->
-  <meta property="og:title" content="gelinlang&#39;s Blog">
-  <meta property="og:description" content="路漫漫求修远兮，我将上下而求索">
-  <meta property="og:site_name" content="gelinlang&#39;s Blog">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="http://gelinlang.cn">
-  
-    <link rel="alternate" href="/atom.xml" title="gelinlang&#39;s Blog" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
   
 
-  <!-- Site Title -->
+
+
+
+  <meta name="description" content="路漫漫求修远兮，吾将上下而求索">
+<meta property="og:type" content="website">
+<meta property="og:title" content="gelinlang&#39;s Blog">
+<meta property="og:url" content="http://gelinlang.cn/index.html">
+<meta property="og:site_name" content="gelinlang&#39;s Blog">
+<meta property="og:description" content="路漫漫求修远兮，吾将上下而求索">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="gelinlang&#39;s Blog">
+<meta name="twitter:description" content="路漫漫求修远兮，吾将上下而求索">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://gelinlang.cn/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
   <title>gelinlang's Blog</title>
-
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="/css/bootstrap.min.css">
-  <!-- Custom CSS -->
   
-  <link rel="stylesheet" href="/css/style.light.css">
 
-  <!-- Google Analytics -->
-  
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
 
 </head>
 
-  <body>
-    <!-- Page Header -->
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left 
+  page-home">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">gelinlang's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
 
 
-<header class="site-header header-background" style="background-image: url(/img/default-banner-dark.jpg)">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <div class="page-title with-background-image">
-          <p class="title">gelinlang&#39;s Blog</p>
-          <p class="subtitle"></p>
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home menu-item-active">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://gelinlang.cn/2019/04/24/DDCTF-2019-部分-writeup/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="gelinlang">
+      <meta itemprop="description" content="路漫漫求修远兮，吾将上下而求索">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="gelinlang's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/04/24/DDCTF-2019-部分-writeup/" class="post-title-link" itemprop="url">DDCTF-2019-部分-writeup</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-04-24 13:31:21" itemprop="dateCreated datePublished" datetime="2019-04-24T13:31:21+08:00">2019-04-24</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-04-23 20:50:28" itemprop="dateModified" datetime="2019-04-23T20:50:28+08:00">2019-04-23</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/CTF/" itemprop="url" rel="index"><span itemprop="name">CTF</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
         </div>
-        <div class="site-menu with-background-image">
-          <ul>
-            
-              <li>
-                <a href="/">
-                  
-                  Home
-                  
-                </a>
-              </li>
-            
-              <li>
-                <a href="/archives">
-                  
-                  Archives
-                  
-                </a>
-              </li>
-            
-              <li>
-                <a href="/tags/">
-                  
-                  Tags
-                  
-                </a>
-              </li>
-            
-              <li>
-                <a href="/categories/">
-                  
-                  Categories
-                  
-                </a>
-              </li>
-            
-              <li>
-                <a href="http://gelinlang@163.com">
-                  
-                  Email
-                  
-                </a>
-              </li>
-            
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</header>
+      </header>
+    
 
-<!-- Home Page Post List -->
-<div class="container">
-  <div class="row">
-    <div class="col-lg-10 col-md-10 col-md-offset-1">
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
-        <div class="post-item-wrapper">
-  <a href="/2019/04/23/偶然在教务处发现csrf漏洞/" class="post-title">
-      偶然在教务处发现csrf漏洞
-  </a>
-  <div class="post-excerpt">
-    <!-- Post Date and Categories -->
-    <div class="date-and-category">
-      <div class="date">2019-04-23</div>
-      <div class="categories">
+      
+
+      
         
+          <p>只做出一道web，一道misc，好菜。接下来看大佬的wp学习下吧。</p>
+<p>#<strong>web1</strong><br>打开链接，可以看到可能存在文件包含的url，有base64编码的参数，，经2次base64解密加转字符串为flag.php。<br>审查元素，可以看到图片的base64编码。<br>
+          <!--noindex-->
           
-
-<a href="/categories/随笔/">随笔</a>
-
-        
-      </div>
-    </div>
-    <!-- Post Excerpt -->
-    <div class="excerpt typo"><p>教务处修改密码界面如下：<br><img src="https://upload-images.jianshu.io/upload_images/16514845-683586af0de2a529.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="1.png"></p>
-<p>正常情况此处需要输出原密码，不会造成csrf漏洞。<br></p></div>
-    <!-- Post Tags -->
-    <div class="tags">
-      
-        <div class="untagged">Untagged</div>
-      
-    </div>
-  </div>
-</div>
-
-      
-        <div class="post-item-wrapper">
-  <a href="/2019/04/23/记某网站验证不严导致密码泄露及任意账户重置漏洞/" class="post-title">
-      记某网站验证不严导致密码泄露及任意账户重置漏洞
-  </a>
-  <div class="post-excerpt">
-    <!-- Post Date and Categories -->
-    <div class="date-and-category">
-      <div class="date">2019-04-23</div>
-      <div class="categories">
-        
-          
-
-<a href="/categories/随笔/">随笔</a>
-
-        
-      </div>
-    </div>
-    <!-- Post Excerpt -->
-    <div class="excerpt typo"><p>重置密码逻辑存在问题，做个记录。<br>在登录处，点击忘了密码，<br></p></div>
-    <!-- Post Tags -->
-    <div class="tags">
-      
-        <div class="untagged">Untagged</div>
-      
-    </div>
-  </div>
-</div>
-
-      
-        <div class="post-item-wrapper">
-  <a href="/2019/04/23/反序列化中__wakeup()函数漏洞/" class="post-title">
-      反序列化中__wakeup()函数漏洞
-  </a>
-  <div class="post-excerpt">
-    <!-- Post Date and Categories -->
-    <div class="date-and-category">
-      <div class="date">2019-04-23</div>
-      <div class="categories">
-        
-          
-
-<a href="/categories/随笔/">随笔</a>
-
-        
-      </div>
-    </div>
-    <!-- Post Excerpt -->
-    <div class="excerpt typo"><p><strong>wakeup()是用在反序列化操作中。unserialize()会检查存在一个</strong>wakeup()方法。如果存在，则先会调用__wakeup()方法。<br></p></div>
-    <!-- Post Tags -->
-    <div class="tags">
-      
-        
-
-<a class="tag" href="/tags/反序列化/">反序列化</a>
-
-
-      
-    </div>
-  </div>
-</div>
-
-      
-        <div class="post-item-wrapper">
-  <a href="/2019/04/23/Web-wanna-to-see-your-hat-/" class="post-title">
-      Web-wanna-to-see-your-hat
-  </a>
-  <div class="post-excerpt">
-    <!-- Post Date and Categories -->
-    <div class="date-and-category">
-      <div class="date">2019-04-23</div>
-      <div class="categories">
-        
-          
-
-<a href="/categories/CTF/">CTF</a>
-
-        
-      </div>
-    </div>
-    <!-- Post Excerpt -->
-    <div class="excerpt typo"><p>点开页面显示一堆帽子，点击I want to check the color of my hat!。进入页面，可以输入name，随便输个名字，check然后返回一堆绿帽子。再试下注册，用注册的name去check，还是返回一堆绿帽子。这么多输入框，可能存在注入点。<br>接下来用burpsuite抓包，随便输个name，点击check。抓包如下<br></p></div>
-    <!-- Post Tags -->
-    <div class="tags">
-      
-        <div class="untagged">Untagged</div>
-      
-    </div>
-  </div>
-</div>
-
-      
-        <div class="post-item-wrapper">
-  <a href="/2019/04/23/src业务逻辑思路/" class="post-title">
-      src业务逻辑思路
-  </a>
-  <div class="post-excerpt">
-    <!-- Post Date and Categories -->
-    <div class="date-and-category">
-      <div class="date">2019-04-23</div>
-      <div class="categories">
-        
-          
-
-<a href="/categories/随笔/">随笔</a>
-
-        
-      </div>
-    </div>
-    <!-- Post Excerpt -->
-    <div class="excerpt typo"><p>对业务逻辑的测试整理下思路，方便查看。</p>
-<p>用户注册，是否可以重复注册，如admin或者admin （此处省略很多个空格）   a<br>密码修改，修改密码逻辑是否有问题<br>密码重置，重置密码逻辑是否有问题，对每一的数据包中的参数进行逐一分析，观察修改密码那一步的参数是否可以获得。<br>短信验证码，短信炸弹，对验证码发送的次数没有限制。短信验证码是否可暴破。<br></p></div>
-    <!-- Post Tags -->
-    <div class="tags">
-      
-        <div class="untagged">Untagged</div>
-      
-    </div>
-  </div>
-</div>
-
-      
-        <div class="post-item-wrapper">
-  <a href="/2019/04/23/SQLite的注入/" class="post-title">
-      SQLite的注入
-  </a>
-  <div class="post-excerpt">
-    <!-- Post Date and Categories -->
-    <div class="date-and-category">
-      <div class="date">2019-04-23</div>
-      <div class="categories">
-        
-          
-
-<a href="/categories/CTF/">CTF</a>
-
-        
-      </div>
-    </div>
-    <!-- Post Excerpt -->
-    <div class="excerpt typo"><p>在攻防世界上遇见了一道数据库是SQLite的ctf，因此做个记录。向mysql的information_schema一样。它也有一个sqlite_master表。<br>union select联合查询：’ union select name,sql from sqlite_master，可以得到创建表的结构。如<br></p></div>
-    <!-- Post Tags -->
-    <div class="tags">
-      
-        <div class="untagged">Untagged</div>
-      
-    </div>
-  </div>
-</div>
-
-      
-        <div class="post-item-wrapper">
-  <a href="/2019/04/23/python爬取付费QQ音乐歌曲/" class="post-title">
-      python爬取付费QQ音乐歌曲
-  </a>
-  <div class="post-excerpt">
-    <!-- Post Date and Categories -->
-    <div class="date-and-category">
-      <div class="date">2019-04-23</div>
-      <div class="categories">
-        
-          
-
-<a href="/categories/python/">python</a>
-
-        
-      </div>
-    </div>
-    <!-- Post Excerpt -->
-    <div class="excerpt typo"><p>整理东西的时候发现，以前写的一个，在qq听音乐时，发现有首好听的，想下载下来但是要钱。就想，既然能听，那就可以找到MP3文件。(如果听都要收费那就没办法了)<br></p></div>
-    <!-- Post Tags -->
-    <div class="tags">
-      
-        <div class="untagged">Untagged</div>
-      
-    </div>
-  </div>
-</div>
-
-      
-        <div class="post-item-wrapper">
-  <a href="/2019/04/23/PHP之弱类型理解/" class="post-title">
-      PHP之弱类型理解
-  </a>
-  <div class="post-excerpt">
-    <!-- Post Date and Categories -->
-    <div class="date-and-category">
-      <div class="date">2019-04-23</div>
-      <div class="categories">
-        
-          
-
-<a href="/categories/随笔/">随笔</a>
-
-        
-      </div>
-    </div>
-    <!-- Post Excerpt -->
-    <div class="excerpt typo"><p>在PHP中有两种比较的符号 == 与 ===，一种是松散的，一种是严格的。<br>==   在进行比较的时候，会先将字符串类型转化成相同，然后再比较。<br>=== 在进行比较的时候，会先判断两种字符串的类型是否相等，然后再比较。<br></p></div>
-    <!-- Post Tags -->
-    <div class="tags">
-      
-        
-
-<a class="tag" href="/tags/弱类型/">弱类型</a>
-
-
-      
-    </div>
-  </div>
-</div>
-
-      
-        <div class="post-item-wrapper">
-  <a href="/2019/04/23/PHP伪协议/" class="post-title">
-      PHP伪协议
-  </a>
-  <div class="post-excerpt">
-    <!-- Post Date and Categories -->
-    <div class="date-and-category">
-      <div class="date">2019-04-23</div>
-      <div class="categories">
-        
-          
-
-<a href="/categories/随笔/">随笔</a>
-
-        
-      </div>
-    </div>
-    <!-- Post Excerpt -->
-    <div class="excerpt typo"><p>最常用的php://filter，用于读取文件/源码：<a href="http://127.0.0.1/xxx.php?file=php://filter/read=convert.base64-encode/resource=index.php(使用的过滤器是convert.base64-encode。它的作用就是读取index.php的内容进行base64编码后输出)，然后base64解码得到源代码。" target="_blank" rel="noopener">http://127.0.0.1/xxx.php?file=php://filter/read=convert.base64-encode/resource=index.php(使用的过滤器是convert.base64-encode。它的作用就是读取index.php的内容进行base64编码后输出)，然后base64解码得到源代码。</a><br>贴一个大佬讲的php://filter妙用。<br><a href="https://www.leavesongs.com/PENETRATION/php-filter-magic.html" target="_blank" rel="noopener">https://www.leavesongs.com/PENETRATION/php-filter-magic.html</a><br></p></div>
-    <!-- Post Tags -->
-    <div class="tags">
-      
-        
-
-<a class="tag" href="/tags/php伪协议/">php伪协议</a>
-
-
-      
-    </div>
-  </div>
-</div>
-
-      
-        <div class="post-item-wrapper">
-  <a href="/2019/04/23/http头注入/" class="post-title">
-      http头注入
-  </a>
-  <div class="post-excerpt">
-    <!-- Post Date and Categories -->
-    <div class="date-and-category">
-      <div class="date">2019-04-23</div>
-      <div class="categories">
-        
-          
-
-<a href="/categories/随笔/">随笔</a>
-
-        
-      </div>
-    </div>
-    <!-- Post Excerpt -->
-    <div class="excerpt typo"><p>HTTP头部详解<br>User-Agent：使得服务器能够识别客户使用的操作系统，游览器版本等。<br>Cookie：网站为了辨别用户身份、进行 session 跟踪而储存在用户本地终端上的数据。<br>X-Forwarded-For：它被认为是客户端通过HTTP代理或者负载均衡器连接到web服务端获取源ip地址的一个标准。<br>Rerferer：浏览器向 WEB 服务器表明自己是从哪个页面链接过来的。<br>Host：访问的WEB服务器的域名/IP 地址和端口号。<br></p></div>
-    <!-- Post Tags -->
-    <div class="tags">
-      
-        <div class="untagged">Untagged</div>
-      
-    </div>
-  </div>
-</div>
-
-      
-    </div>
-  </div>
-</div>
-
-<!-- Pagination -->
-<div class="container">
-  <div class="row">
-    <div class="col-lg-10 col-md-10 col-md-offset-1">
-      <ul class="pagination">
-          
-          
-            <li class="next">
-              <a href="/page/2/">
-                <span>NEXT</span>
-                <span class="symbol-right">&gt;</span>
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/04/24/DDCTF-2019-部分-writeup/#more" rel="contents">
+                阅读全文 &raquo;
               </a>
-            </li>
+            </div>
           
-      </ul>
+          <!--/noindex-->
+        
+      
+    </p></div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://gelinlang.cn/2019/04/24/src业务逻辑思路/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="gelinlang">
+      <meta itemprop="description" content="路漫漫求修远兮，吾将上下而求索">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="gelinlang's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/04/24/src业务逻辑思路/" class="post-title-link" itemprop="url">src业务逻辑思路</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-04-24 13:31:08 / 修改时间：13:25:00" itemprop="dateCreated datePublished" datetime="2019-04-24T13:31:08+08:00">2019-04-24</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/随笔/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>对业务逻辑的测试整理下思路，方便查看。</p>
+<p>用户注册，是否可以重复注册，如admin或者admin （此处省略很多个空格）   a<br>密码修改，修改密码逻辑是否有问题<br>密码重置，重置密码逻辑是否有问题，对每一的数据包中的参数进行逐一分析，观察修改密码那一步的参数是否可以获得。<br>短信验证码，短信炸弹，对验证码发送的次数没有限制。短信验证码是否可暴破。<br>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/04/24/src业务逻辑思路/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </p></div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://gelinlang.cn/2019/04/24/PHP文件包含--session/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="gelinlang">
+      <meta itemprop="description" content="路漫漫求修远兮，吾将上下而求索">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="gelinlang's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/04/24/PHP文件包含--session/" class="post-title-link" itemprop="url">PHP文件包含--session</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-04-24 13:30:52" itemprop="dateCreated datePublished" datetime="2019-04-24T13:30:52+08:00">2019-04-24</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-04-23 20:53:17" itemprop="dateModified" datetime="2019-04-23T20:53:17+08:00">2019-04-23</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/随笔/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><strong>利用条件</strong>：session文件路径已知，且其中内容部分可控。<br>php的session文件的保存路径可以在phpinfo的session.save_path看到。<br>session 的文件名格式为 sess_[phpsessid]，而 sessionid 在发送的请求的 cookie 字段中也可以看到。<br>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/04/24/PHP文件包含--session/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </p></div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://gelinlang.cn/2019/04/24/记某网站验证不严导致密码泄露及任意账户重置漏洞/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="gelinlang">
+      <meta itemprop="description" content="路漫漫求修远兮，吾将上下而求索">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="gelinlang's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/04/24/记某网站验证不严导致密码泄露及任意账户重置漏洞/" class="post-title-link" itemprop="url">记某网站验证不严导致密码泄露及任意账户重置漏洞</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-04-24 13:30:01" itemprop="dateCreated datePublished" datetime="2019-04-24T13:30:01+08:00">2019-04-24</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-04-23 21:55:26" itemprop="dateModified" datetime="2019-04-23T21:55:26+08:00">2019-04-23</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/随笔/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>重置密码逻辑存在问题，做个记录。<br>在登录处，点击忘了密码，<br>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/04/24/记某网站验证不严导致密码泄露及任意账户重置漏洞/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </p></div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://gelinlang.cn/2019/04/23/偶然在教务处发现csrf漏洞/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="gelinlang">
+      <meta itemprop="description" content="路漫漫求修远兮，吾将上下而求索">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="gelinlang's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/04/23/偶然在教务处发现csrf漏洞/" class="post-title-link" itemprop="url">偶然在教务处发现csrf漏洞</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-04-23 21:51:55 / 修改时间：21:59:54" itemprop="dateCreated datePublished" datetime="2019-04-23T21:51:55+08:00">2019-04-23</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/随笔/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>教务处修改密码界面如下：<br><img src="https://upload-images.jianshu.io/upload_images/16514845-683586af0de2a529.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="1.png"></p>
+<p>正常情况此处需要输出原密码，不会造成csrf漏洞。<br>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/04/23/偶然在教务处发现csrf漏洞/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </p></div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://gelinlang.cn/2019/04/23/反序列化中__wakeup()函数漏洞/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="gelinlang">
+      <meta itemprop="description" content="路漫漫求修远兮，吾将上下而求索">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="gelinlang's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/04/23/反序列化中__wakeup()函数漏洞/" class="post-title-link" itemprop="url">反序列化中__wakeup()函数漏洞</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-04-23 21:51:55 / 修改时间：21:56:33" itemprop="dateCreated datePublished" datetime="2019-04-23T21:51:55+08:00">2019-04-23</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/随笔/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><strong>wakeup()是用在反序列化操作中。unserialize()会检查存在一个</strong>wakeup()方法。如果存在，则先会调用__wakeup()方法。<br>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/04/23/反序列化中__wakeup()函数漏洞/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </p></div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://gelinlang.cn/2019/04/23/Web-wanna-to-see-your-hat-/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="gelinlang">
+      <meta itemprop="description" content="路漫漫求修远兮，吾将上下而求索">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="gelinlang's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/04/23/Web-wanna-to-see-your-hat-/" class="post-title-link" itemprop="url">Web-wanna-to-see-your-hat</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-04-23 21:51:55 / 修改时间：21:53:40" itemprop="dateCreated datePublished" datetime="2019-04-23T21:51:55+08:00">2019-04-23</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/CTF/" itemprop="url" rel="index"><span itemprop="name">CTF</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>点开页面显示一堆帽子，点击I want to check the color of my hat!。进入页面，可以输入name，随便输个名字，check然后返回一堆绿帽子。再试下注册，用注册的name去check，还是返回一堆绿帽子。这么多输入框，可能存在注入点。<br>接下来用burpsuite抓包，随便输个name，点击check。抓包如下<br>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/04/23/Web-wanna-to-see-your-hat-/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </p></div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://gelinlang.cn/2019/04/23/SQLite的注入/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="gelinlang">
+      <meta itemprop="description" content="路漫漫求修远兮，吾将上下而求索">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="gelinlang's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/04/23/SQLite的注入/" class="post-title-link" itemprop="url">SQLite的注入</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-04-23 21:51:55 / 修改时间：22:02:51" itemprop="dateCreated datePublished" datetime="2019-04-23T21:51:55+08:00">2019-04-23</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/CTF/" itemprop="url" rel="index"><span itemprop="name">CTF</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>在攻防世界上遇见了一道数据库是SQLite的ctf，因此做个记录。向mysql的information_schema一样。它也有一个sqlite_master表。<br>union select联合查询：’ union select name,sql from sqlite_master，可以得到创建表的结构。如<br>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/04/23/SQLite的注入/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </p></div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://gelinlang.cn/2019/04/23/python爬取付费QQ音乐歌曲/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="gelinlang">
+      <meta itemprop="description" content="路漫漫求修远兮，吾将上下而求索">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="gelinlang's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/04/23/python爬取付费QQ音乐歌曲/" class="post-title-link" itemprop="url">python爬取付费QQ音乐歌曲</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-04-23 21:51:55 / 修改时间：22:03:25" itemprop="dateCreated datePublished" datetime="2019-04-23T21:51:55+08:00">2019-04-23</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>整理东西的时候发现，以前写的一个，在qq听音乐时，发现有首好听的，想下载下来但是要钱。就想，既然能听，那就可以找到MP3文件。(如果听都要收费那就没办法了)<br>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/04/23/python爬取付费QQ音乐歌曲/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </p></div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://gelinlang.cn/2019/04/23/PHP之弱类型理解/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="gelinlang">
+      <meta itemprop="description" content="路漫漫求修远兮，吾将上下而求索">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="gelinlang's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/04/23/PHP之弱类型理解/" class="post-title-link" itemprop="url">PHP之弱类型理解</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-04-23 21:51:55 / 修改时间：22:01:41" itemprop="dateCreated datePublished" datetime="2019-04-23T21:51:55+08:00">2019-04-23</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/随笔/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>在PHP中有两种比较的符号 == 与 ===，一种是松散的，一种是严格的。<br>==   在进行比较的时候，会先将字符串类型转化成相同，然后再比较。<br>=== 在进行比较的时候，会先判断两种字符串的类型是否相等，然后再比较。<br>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/04/23/PHP之弱类型理解/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </p></div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
     </div>
   </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">gelinlang</p>
+              <div class="site-description motion-element" itemprop="description">路漫漫求修远兮，吾将上下而求索</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">34</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">gelinlang</span>
+
+  
+
+  
 </div>
 
 
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
 
-    <!-- Footer -->
-<footer>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <p class="copyright text-muted">
-          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
-          Inspired By <a target="_blank" href="https://github.com/klugjo/hexo-theme-clean-blog">Clean Blog.</a>
-        </p><p class="copyright text-muted">
-          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
-        </p>
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.1.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
       </div>
-    </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
   </div>
-</footer>
 
+  
 
-    <!-- After Footer Scripts -->
-<script src="/js/highlight.pack.js"></script>
 <script>
-  document.addEventListener("DOMContentLoaded", function(event) {
-    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
-    codeBlocks.forEach(function(block, index) {
-      hljs.highlightBlock(block);
-    });
-  });
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
 </script>
 
-  </body>
-</html>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.0"></script>
+
+  <script src="/js/motion.js?v=7.1.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.0"></script>
+
+
+
+  
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.0"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
