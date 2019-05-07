@@ -96,25 +96,17 @@
 
 
 
-  <meta name="description" content="利用条件：session文件路径已知，且其中内容部分可控。php的session文件的保存路径可以在phpinfo的session.save_path看到。session 的文件名格式为 sess_[phpsessid]，而 sessionid 在发送的请求的 cookie 字段中也可以看到。">
-<meta name="keywords" content="session包含">
+  <meta name="description" content="要暑假了，恐慌的投个实习。投了好几个都没有消息。哭。。首先吐槽一下，短信通知了视频面试，上线面试官却不在，等了好几个小时吧。应该是一天内面试完。一面：自我介绍CTF遇见哪些有意思的题。csrf和ssrf的区别。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PHP文件包含--session">
-<meta property="og:url" content="http://gelinlang.cn/2019/04/24/PHP文件包含--session/index.html">
+<meta property="og:title" content="360安全岗实习面试">
+<meta property="og:url" content="http://gelinlang.cn/2019/05/07/360安全岗实习面试/index.html">
 <meta property="og:site_name" content="gelinlang&#39;s Blog">
-<meta property="og:description" content="利用条件：session文件路径已知，且其中内容部分可控。php的session文件的保存路径可以在phpinfo的session.save_path看到。session 的文件名格式为 sess_[phpsessid]，而 sessionid 在发送的请求的 cookie 字段中也可以看到。">
+<meta property="og:description" content="要暑假了，恐慌的投个实习。投了好几个都没有消息。哭。。首先吐槽一下，短信通知了视频面试，上线面试官却不在，等了好几个小时吧。应该是一天内面试完。一面：自我介绍CTF遇见哪些有意思的题。csrf和ssrf的区别。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/16514845-126d5f87ddb3d7dd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/16514845-49eeeb98b8911d4c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/16514845-5a5183ee841f14b9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/16514845-5ff3050c0ff20ec3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/16514845-a01f8c5d7b0b5b56.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/16514845-5a9fed440784bc1a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2019-04-23T12:53:17.489Z">
+<meta property="og:updated_time" content="2019-05-07T15:52:49.267Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PHP文件包含--session">
-<meta name="twitter:description" content="利用条件：session文件路径已知，且其中内容部分可控。php的session文件的保存路径可以在phpinfo的session.save_path看到。session 的文件名格式为 sess_[phpsessid]，而 sessionid 在发送的请求的 cookie 字段中也可以看到。">
-<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/16514845-126d5f87ddb3d7dd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="360安全岗实习面试">
+<meta name="twitter:description" content="要暑假了，恐慌的投个实习。投了好几个都没有消息。哭。。首先吐槽一下，短信通知了视频面试，上线面试官却不在，等了好几个小时吧。应该是一天内面试完。一面：自我介绍CTF遇见哪些有意思的题。csrf和ssrf的区别。">
 
 
 
@@ -122,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://gelinlang.cn/2019/04/24/PHP文件包含--session/">
+  <link rel="canonical" href="http://gelinlang.cn/2019/05/07/360安全岗实习面试/">
 
 
 
@@ -132,7 +124,7 @@
   };
 </script>
 
-  <title>PHP文件包含--session | gelinlang's Blog</title>
+  <title>360安全岗实习面试 | gelinlang's Blog</title>
   
 
 
@@ -314,7 +306,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://gelinlang.cn/2019/04/24/PHP文件包含--session/">
+    <link itemprop="mainEntityOfPage" href="http://gelinlang.cn/2019/05/07/360安全岗实习面试/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="gelinlang">
@@ -331,7 +323,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">PHP文件包含--session
+          <h1 class="post-title" itemprop="name headline">360安全岗实习面试
 
               
             
@@ -357,24 +349,12 @@
                 
               
 
-              <time title="创建时间：2019-04-24 13:30:52" itemprop="dateCreated datePublished" datetime="2019-04-24T13:30:52+08:00">2019-04-24</time>
+              <time title="创建时间：2019-05-07 23:51:37 / 修改时间：23:52:49" itemprop="dateCreated datePublished" datetime="2019-05-07T23:51:37+08:00">2019-05-07</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-04-23 20:53:17" itemprop="dateModified" datetime="2019-04-23T20:53:17+08:00">2019-04-23</time>
               
             
           </span>
@@ -426,10 +406,7 @@
       
 
       
-        <p><strong>利用条件</strong>：session文件路径已知，且其中内容部分可控。<br>php的session文件的保存路径可以在phpinfo的session.save_path看到。<br>session 的文件名格式为 sess_[phpsessid]，而 sessionid 在发送的请求的 cookie 字段中也可以看到。<br><a id="more"></a><br><strong>实例</strong>：“百度杯”CTF比赛 十二月场 notebook<br>tips：文件包含phpinfo是不是有新的发现。<br>打开页面，看见url可能存在文件包含，可以看到登录框，审查下元素，没发现，按照正常流程走一遍，注册admin/admin，居然还成功了，登录，显示欢迎admin,there is no flag。</p>
-<p>接下来测试，先测试文件包含吧，将module的php换成空，我们可以控制要包含文件的后缀，包含一下题上提示的phpinfo.php，文件不存在。看能不能用php伪协议读取一下login和register的源码，未成功。然后测试下sql注入，在登录和注册页面好像都没有。<br>当我们没思路的时候就扫描一下目录。扫出robots.txt，访问得到php1nFo.php文件，访问得到php配置信息。我们目前可以控制的就是注册的用户名，接下来尝试下session包含。<br>在php配置信息中可以看到<br><img src="https://upload-images.jianshu.io/upload_images/16514845-126d5f87ddb3d7dd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br><img src="https://upload-images.jianshu.io/upload_images/16514845-49eeeb98b8911d4c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"></p>
-<p>open_basedir是可将用户访问文件的活动范围限制在指定的区域。注意用open_basedir指定的限制实际上是前缀,而不是目录名。 session.save_path就是session文件存在的位置。<br>举个例子: 若”open_basedir = /dir/user”, 那么目录 “/dir/user” 和 “/dir/user1”都是<br>可以访问的。所以如果要将访问限制在仅为指定的目录，请用斜线结束路径名。例如设置成:<br>“open_basedir = /dir/user/“<br>那么问题来了，我们只能控制/tmp目录，/var/lib/php5这个目录是包含不了的。。<br>这里用题给的tips文件包含phpinfo是不是有新的发现，文件包含php1nFo.php这个文件，可以看到<img src="https://upload-images.jianshu.io/upload_images/16514845-5a5183ee841f14b9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>session.save_path变了，我也不知道为什么。。<br>接下来session包含。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">payload:?module=&amp;file=../../../../tmp/SESS/sess_nlloqni0ef0tpqbt3jdj81rj75</span><br></pre></td></tr></table></figure></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/16514845-5ff3050c0ff20ec3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>可以看到admin，接下来我们注册用户名为&lt;?php system(‘ls’); ?&gt;，登录后。依旧payload像上面，可以得到<br><img src="https://upload-images.jianshu.io/upload_images/16514845-a01f8c5d7b0b5b56.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>然后注册用户名&lt;?php system(‘cat flag.php’); ?&gt;，审查元素得到flag。<br><img src="https://upload-images.jianshu.io/upload_images/16514845-5a9fed440784bc1a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"></p>
+        <p>要暑假了，恐慌的投个实习。投了好几个都没有消息。哭。。<br>首先吐槽一下，短信通知了视频面试，上线面试官却不在，等了好几个小时吧。应该是一天内面试完。<br>一面：<br>自我介绍<br>CTF遇见哪些有意思的题。<br>csrf和ssrf的区别。<br><a id="more"></a><br>宽字节注入。<br>文件上传的绕过。<br>上传时服务器解析漏洞有哪些。<br>nmap -Pn -sV -T4 -O -P1-65535的意思。<br>burpsuite的intruder爆破时遇见返回值是302重定向怎么处理。<br>了解哪些数据库，回答mysql。<br>遇见存在sql注入的网站会怎么做。<br>在用sql注入写webshell时，具体操作。<br>python常用模块。<br>爬取后的数据怎么分析的 。<br>二面：<br>自我介绍<br>说一下常用端口。<br>53，1521，1433端口是什么服务。<br>给一个网站会怎么拿shell。<br>怎么查找子域名。<br>怎么查看这些域名的IP。<br>怎么判断IP是否是真实的，可能有CDN之类的。<br>如果有CDN怎么看真实IP。<br>nmap常用哪些参数，具体意思是什么，比如-sS半开放扫描，不进行一个完全的TCP，只发起SYN包。<br>mysql怎么提权。<br>提权的具体操作。<br>sql注入时，mysql有一个系统表是什么。<br>sql注入过滤了逗号，怎么办。<br>PHP5.3.4有个什么漏洞。(和下面3个问题有联系)<br>%00截断的原理。<br>PHP用什么语言写的。<br>C语言的字符串怎么判断结束。(结束标志是字符‘0’，它的ASCII码值是0，所以在PHP中%00截断)<br>文件上传的绕过。<br>msf常用功能。<br>了解内网渗透吗。<br>对有意向实习的城市排个序。<br>大概就这些吧。<br>三面：<br>二面结束后大概21点，然后通知21点20面试，再然后面试官没有上线。。。。</p>
 
       
     </div>
@@ -451,12 +428,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/session包含/" rel="tag"># session包含</a>
-          
-        </div>
-      
 
       
       
@@ -466,8 +437,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/24/记某网站验证不严导致密码泄露及任意账户重置漏洞/" rel="next" title="记某网站验证不严导致密码泄露及任意账户重置漏洞">
-                <i class="fa fa-chevron-left"></i> 记某网站验证不严导致密码泄露及任意账户重置漏洞
+              <a href="/2019/04/24/CDUT第一届CTF赛web-wp/" rel="next" title="CDUT第一届CTF赛web-wp">
+                <i class="fa fa-chevron-left"></i> CDUT第一届CTF赛web-wp
               </a>
             
           </div>
@@ -475,10 +446,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/04/24/src业务逻辑思路/" rel="prev" title="src业务逻辑思路">
-                src业务逻辑思路 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
